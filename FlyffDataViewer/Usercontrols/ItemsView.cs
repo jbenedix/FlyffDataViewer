@@ -76,24 +76,11 @@ namespace FlyffDataViewer.Usercontrols
                 }
 
 
+
             }
 
 
 
-        }
-
-        private void waffenToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var filteredItems = ContentManager.Items.Where(x => x.dwItemKind1 == "IK1_WEAPON").ToList();
-            listBox_Items.DataSource = filteredItems;
-            textBox_search.Text = "";
-        }
-
-        private void rüstungToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var filteredItems = ContentManager.Items.Where(x => x.dwItemKind1 == "IK1_ARMOR").ToList();
-            listBox_Items.DataSource = filteredItems;
-            textBox_search.Text = "";
         }
 
         private void textBox_search_TextChanged(object sender, EventArgs e)
@@ -194,9 +181,57 @@ namespace FlyffDataViewer.Usercontrols
         private void button7_Click(object sender, EventArgs e)
         {
             textBox_search.Text = "";
+            listBox_Items.DataSource = ContentManager.Items;
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            var filteredItems = ContentManager.Items.Where(x => x.dwItemKind1 == "IK1_WEAPON").ToList();
+            listBox_Items.DataSource = filteredItems;
+            textBox_search.Text = "";
+        }
+
+        private void button_ArmorFilter_Click(object sender, EventArgs e)
+        {
+            var filteredItems = ContentManager.Items.Where(x => x.dwItemKind1 == "IK1_ARMOR").ToList();
+            listBox_Items.DataSource = filteredItems;
+            textBox_search.Text = "";
+        }
+
+        private void button_ScrollFilter_Click(object sender, EventArgs e)
+        {
+            var filteredItems = ContentManager.Items.Where(x => x.dwItemKind3 == "IK3_SCROLL" && x.ingameName.Contains("scroll", StringComparison.OrdinalIgnoreCase)).ToList();
+            listBox_Items.DataSource = filteredItems;
+            textBox_search.Text = "";
+        }
+
+        private void button_FoodFilter_Click(object sender, EventArgs e)
+        {
+            var filteredItems = ContentManager.Items.Where(x => x.dwItemKind2 == "IK2_FOOD").ToList();
+            listBox_Items.DataSource = filteredItems;
+            textBox_search.Text = "";
+        }
+
+        private void button_CardFilter_Click(object sender, EventArgs e)
+        {
+            var filteredItems = ContentManager.Items.Where(x => x.dwItemKind2 == "IK2_MATERIAL").ToList();
+            listBox_Items.DataSource = filteredItems;
+            textBox_search.Text = "";
+        }
+
+        private void button_UpgradeFilter_Click(object sender, EventArgs e)
+        {
+            var filteredItems = ContentManager.Items.Where(x => x.dwItemKind2 == "IK2_MATERIAL" && (x.dwItemKind3 == "IK3_ENCHANT" || x.dwItemKind3 == "IK3_PIERDICE")).ToList();
+            listBox_Items.DataSource = filteredItems;
+            textBox_search.Text = "";
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
