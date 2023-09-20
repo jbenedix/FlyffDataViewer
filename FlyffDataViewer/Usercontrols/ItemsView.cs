@@ -88,7 +88,18 @@ namespace FlyffDataViewer.Usercontrols
             List<PropItemDTO> filteredItems = new List<PropItemDTO>();
             if (textBox_search.Text.Length > 0)
             {
-                filteredItems = ContentManager.Items.Where(x => x.ingameName.Contains(textBox_search.Text, StringComparison.OrdinalIgnoreCase)).ToList();
+                foreach (var item in ContentManager.Items)
+                {
+                    if(item.dwID is not null && item.ID is not null && item.ingameName is not null)
+                    {
+                        if(item.ingameName.Contains(textBox_search.Text, StringComparison.OrdinalIgnoreCase) ||
+                            item.dwID.Contains(textBox_search.Text, StringComparison.OrdinalIgnoreCase) ||
+                            item.ID.Contains(textBox_search.Text, StringComparison.OrdinalIgnoreCase))
+                        {
+                            filteredItems.Add(item);
+                        }
+                    }
+                }
                 listBox_Items.DataSource = filteredItems;
             }
             else
