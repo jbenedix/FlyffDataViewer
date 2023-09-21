@@ -67,6 +67,7 @@
             monstersToolStripMenuItem.Name = "monstersToolStripMenuItem";
             monstersToolStripMenuItem.Size = new Size(91, 25);
             monstersToolStripMenuItem.Text = "Monsters";
+            monstersToolStripMenuItem.Click += monstersToolStripMenuItem_Click;
             // 
             // panel1
             // 

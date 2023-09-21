@@ -66,22 +66,6 @@ namespace FlyffDataViewer.Usercontrols
             textBox_nAdjParamVal4.Text = selectedItem.nAdjParamVal4;
             textBox_nAdjParamVal5.Text = selectedItem.nAdjParamVal5;
             textBox_nAdjParamVal6.Text = selectedItem.nAdjParamVal6;
-
-            if (selectedItem.dwItemKind1 == "IK1_WEAPON")
-            {
-                //Find Spec Item for ID
-                var specItem = ContentManager.SpecItems.SingleOrDefault(x => x.dwID == selectedItem.dwID);
-                if (specItem != null)
-                {
-
-                }
-
-
-
-            }
-
-
-
         }
 
         private void textBox_search_TextChanged(object sender, EventArgs e)
@@ -91,9 +75,9 @@ namespace FlyffDataViewer.Usercontrols
             {
                 foreach (var item in ContentManager.Items)
                 {
-                    if(item.dwID is not null && item.ID is not null && item.ingameName is not null)
+                    if (item.dwID is not null && item.ID is not null && item.ingameName is not null)
                     {
-                        if(item.ingameName.Contains(textBox_search.Text, StringComparison.OrdinalIgnoreCase) ||
+                        if (item.ingameName.Contains(textBox_search.Text, StringComparison.OrdinalIgnoreCase) ||
                             item.dwID.Contains(textBox_search.Text, StringComparison.OrdinalIgnoreCase) ||
                             item.ID.Contains(textBox_search.Text, StringComparison.OrdinalIgnoreCase))
                         {

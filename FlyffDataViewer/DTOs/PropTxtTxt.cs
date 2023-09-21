@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FlyffDataViewer.DTOs
 {
-    public class PropItemDescription
+    public class PropTxtTxt
     {
         public string ID;
         public string Name;
