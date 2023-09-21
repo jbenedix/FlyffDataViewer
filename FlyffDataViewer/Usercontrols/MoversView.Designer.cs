@@ -95,6 +95,7 @@
             // comboBox_MoverClass
             // 
             comboBox_MoverClass.BackColor = SystemColors.ControlDarkDark;
+            comboBox_MoverClass.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox_MoverClass.FlatStyle = FlatStyle.Popup;
             comboBox_MoverClass.ForeColor = Color.White;
             comboBox_MoverClass.FormattingEnabled = true;

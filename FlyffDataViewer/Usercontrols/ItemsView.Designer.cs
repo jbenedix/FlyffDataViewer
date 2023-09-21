@@ -41,6 +41,8 @@
             textBox_MaxStack = new TextBox();
             label6 = new Label();
             panel1 = new Panel();
+            comboBox_MoverClass = new ComboBox();
+            label35 = new Label();
             label34 = new Label();
             button_CardFilter = new Button();
             button_FoodFilter = new Button();
@@ -244,6 +246,8 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(comboBox_MoverClass);
+            panel1.Controls.Add(label35);
             panel1.Controls.Add(label34);
             panel1.Controls.Add(button_CardFilter);
             panel1.Controls.Add(button_FoodFilter);
@@ -255,6 +259,29 @@
             panel1.Size = new Size(898, 31);
             panel1.TabIndex = 12;
             panel1.Paint += panel1_Paint;
+            // 
+            // comboBox_MoverClass
+            // 
+            comboBox_MoverClass.BackColor = SystemColors.ControlDarkDark;
+            comboBox_MoverClass.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox_MoverClass.FlatStyle = FlatStyle.Popup;
+            comboBox_MoverClass.ForeColor = Color.White;
+            comboBox_MoverClass.FormattingEnabled = true;
+            comboBox_MoverClass.Items.AddRange(new object[] { "0", "1", "2", "3" });
+            comboBox_MoverClass.Location = new Point(680, 4);
+            comboBox_MoverClass.Name = "comboBox_MoverClass";
+            comboBox_MoverClass.Size = new Size(205, 23);
+            comboBox_MoverClass.TabIndex = 109;
+            comboBox_MoverClass.SelectedIndexChanged += comboBox_MoverClass_SelectedIndexChanged;
+            // 
+            // label35
+            // 
+            label35.AutoSize = true;
+            label35.Location = new Point(635, 7);
+            label35.Name = "label35";
+            label35.Size = new Size(39, 15);
+            label35.TabIndex = 108;
+            label35.Text = "Klasse";
             // 
             // label34
             // 
@@ -1160,5 +1187,7 @@
         private Button button_weaponFilter;
         private Label label34;
         private Panel panel2;
+        private ComboBox comboBox_MoverClass;
+        private Label label35;
     }
 }

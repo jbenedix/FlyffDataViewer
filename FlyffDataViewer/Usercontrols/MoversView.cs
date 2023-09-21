@@ -23,7 +23,6 @@ namespace FlyffDataViewer.Usercontrols
 
         private void MoversView_Load(object sender, EventArgs e)
         {
-            Console.WriteLine(ContentManager.Movers);
             foreach (var item in ContentManager.Movers)
             {
                 MoverClasses.Add(item.dwClass);

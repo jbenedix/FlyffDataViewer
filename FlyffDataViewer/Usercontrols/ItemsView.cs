@@ -18,6 +18,7 @@ namespace FlyffDataViewer.Usercontrols
     {
         ShopList shopList;
         bool loadSpecItem;
+        List<string> jobClasses = new List<string>();
 
         public ItemsView()
         {
@@ -29,6 +30,12 @@ namespace FlyffDataViewer.Usercontrols
         private void ItemsView_Load(object sender, EventArgs e)
         {
             listBox_Items.DataSource = ContentManager.Items;
+            foreach (var item in ContentManager.Items)
+            {
+                jobClasses.Add(item.dwItemJob);
+            }
+            jobClasses = jobClasses.Distinct().ToList();
+            comboBox_MoverClass.DataSource = jobClasses;
         }
 
         private void listBox_Items_SelectedIndexChanged(object sender, EventArgs e)
@@ -230,6 +237,13 @@ namespace FlyffDataViewer.Usercontrols
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void comboBox_MoverClass_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var filteredItems = ContentManager.Items.Where(x => x.dwItemJob == comboBox_MoverClass.SelectedItem.ToString()).ToList();
+            listBox_Items.DataSource = filteredItems;
+            textBox_search.Text = "";
         }
     }
 }
