@@ -16,7 +16,7 @@ namespace FlyffDataViewer.Classes
 {
     public static class ContentManager
     {
-        public static List<PropItemDTO> Items = new List<PropItemDTO>();
+        public static List<SpecItem> Items = new List<SpecItem>();
         public static List<PropItemDescription> ItemsDescription = new List<PropItemDescription>();
         public static List<DefineItem> defineItems = new List<DefineItem>();
         public static List<SpecItem> SpecItems = new List<SpecItem>();
@@ -29,129 +29,18 @@ namespace FlyffDataViewer.Classes
 
         public static void LoadItems()
         {
-            LoadPropitemTxt();
+            LoadSpecItemTxt();
             LoadPropItemTxtTxt();
             LoadDefineItems();
             updateItemIngameName();
-            LoadSpecItems();
 
         }
 
-        public static void LoadSpecItems()
-        {
-            SpecItemtxt = File.ReadAllLines(SettingsManager.resourcePath + "\\Spec_Item.txt").ToList();
-            int dwIDIndex = 0;
-            int dwDestParam1Index = 0;
-            int dwDestParam2Index = 0;
-            int dwDestParam3Index = 0;
-            int dwDestParam4Index = 0;
-            int dwDestParam5Index = 0;
-            int dwDestParam6Index = 0;
 
-
-            int nAdjParamVal1Index = 0;
-            int nAdjParamVal2Index = 0;
-            int nAdjParamVal3Index = 0;
-            int nAdjParamVal4Index = 0;
-            int nAdjParamVal5Index = 0;
-            int nAdjParamVal6Index = 0;
-
-            int dwactiveskillIndex = 0;
-
-            int headlineNumber = 1;
-
-            //find header_line
-            for (int i = 0; i < SpecItemtxt.Count; i++)
-            {
-                if (SpecItemtxt[i].Contains("dwDestParam1") && SpecItemtxt[i].Contains("dwDestParam3"))
-                {
-                    headlineNumber = i;
-                }
-            }
-
-            var temp = SpecItemtxt[headlineNumber].Split('\t');
-            for (int i = 0; i < temp.Length; i++)
-            {
-                switch (temp[i])
-                {
-                    case "//dwID":
-                        dwIDIndex = i;
-                        break;
-                    case "dwDestParam1":
-                        dwDestParam1Index = i;
-                        break;
-                    case "dwDestParam2":
-                        dwDestParam2Index = i;
-                        break;
-                    case "dwDestParam3":
-                        dwDestParam3Index = i;
-                        break;
-                    case "dwDestParam4":
-                        dwDestParam4Index = i;
-                        break;
-                    case "dwDestParam5":
-                        dwDestParam5Index = i;
-                        break;
-                    case "dwDestParam6":
-                        dwDestParam6Index = i;
-                        break;
-                    case "nAdjParamVal1":
-                        nAdjParamVal1Index = i;
-                        break;
-                    case "nAdjParamVal2":
-                        nAdjParamVal2Index = i;
-                        break;
-                    case "nAdjParamVal3":
-                        nAdjParamVal3Index = i;
-                        break;
-                    case "nAdjParamVal4":
-                        nAdjParamVal4Index = i;
-                        break;
-                    case "nAdjParamVal5":
-                        nAdjParamVal5Index = i;
-                        break;
-                    case "nAdjParamVal6":
-                        nAdjParamVal6Index = i;
-                        break;
-                    case "dwactiveskill":
-                        dwactiveskillIndex = i;
-                        break;
-                }
-            }
-
-            for (int i = headlineNumber + 1; i < SpecItemtxt.Count; i++)
-            {
-                if (SpecItemtxt[i].Split('\t').Length == 171)
-                {
-
-                    var splittedLine = SpecItemtxt[i].Split('\t');
-                    var specitem = new SpecItem
-                    {
-                        dwID = splittedLine[dwIDIndex],
-                        dwDestParam1 = splittedLine[dwDestParam1Index],
-                        dwDestParam2 = splittedLine[dwDestParam2Index],
-                        dwDestParam3 = splittedLine[dwDestParam3Index],
-                        dwDestParam4 = splittedLine[dwDestParam4Index],
-                        dwDestParam5 = splittedLine[dwDestParam5Index],
-                        dwDestParam6 = splittedLine[dwDestParam6Index],
-                        nAdjParamVal1 = splittedLine[nAdjParamVal1Index],
-                        nAdjParamVal2 = splittedLine[nAdjParamVal2Index],
-                        nAdjParamVal3 = splittedLine[nAdjParamVal3Index],
-                        nAdjParamVal4 = splittedLine[nAdjParamVal4Index],
-                        nAdjParamVal5 = splittedLine[nAdjParamVal5Index],
-                        nAdjParamVal6 = splittedLine[nAdjParamVal6Index],
-                        dwactiveskill = splittedLine[dwactiveskillIndex],
-                    };
-                    SpecItems.Add(specitem);
-                }
-            }
-        }
-
-
-        public static void LoadPropitemTxt()
+        public static void LoadSpecItemTxt()
         {
             //Load propitem.txt
-            propitemtxt = File.ReadAllLines(SettingsManager.resourcePath + "\\propItem.txt").ToList();
+            propitemtxt = File.ReadAllLines(SettingsManager.resourcePath + "\\Spec_Item.txt").ToList();
             propitemtxt = propitemtxt.Distinct().ToList();
             int dwIDIndex = 1;
             int szNameIndex = 2;
@@ -171,6 +60,22 @@ namespace FlyffDataViewer.Classes
             int dwWeaponTypeIndex = 16;
             int dwAttackRangeIndex = 17;
             int dwAttackSpeedIndex = 18;
+            int dwDestParam1Index = 0;
+            int dwDestParam2Index = 0;
+            int dwDestParam3Index = 0;
+            int dwDestParam4Index = 0;
+            int dwDestParam5Index = 0;
+            int dwDestParam6Index = 0;
+
+
+            int nAdjParamVal1Index = 0;
+            int nAdjParamVal2Index = 0;
+            int nAdjParamVal3Index = 0;
+            int nAdjParamVal4Index = 0;
+            int nAdjParamVal5Index = 0;
+            int nAdjParamVal6Index = 0;
+
+            int dwactiveskillIndex = 0;
 
             int headlineNumber = 1;
 
@@ -290,13 +195,53 @@ namespace FlyffDataViewer.Classes
                             dwAttackSpeedIndex = i;
                         }
                         break;
-
+                    case "dwDestParam1":
+                        dwDestParam1Index = i;
+                        break;
+                    case "dwDestParam2":
+                        dwDestParam2Index = i;
+                        break;
+                    case "dwDestParam3":
+                        dwDestParam3Index = i;
+                        break;
+                    case "dwDestParam4":
+                        dwDestParam4Index = i;
+                        break;
+                    case "dwDestParam5":
+                        dwDestParam5Index = i;
+                        break;
+                    case "dwDestParam6":
+                        dwDestParam6Index = i;
+                        break;
+                    case "nAdjParamVal1":
+                        nAdjParamVal1Index = i;
+                        break;
+                    case "nAdjParamVal2":
+                        nAdjParamVal2Index = i;
+                        break;
+                    case "nAdjParamVal3":
+                        nAdjParamVal3Index = i;
+                        break;
+                    case "nAdjParamVal4":
+                        nAdjParamVal4Index = i;
+                        break;
+                    case "nAdjParamVal5":
+                        nAdjParamVal5Index = i;
+                        break;
+                    case "nAdjParamVal6":
+                        nAdjParamVal6Index = i;
+                        break;
+                    case "dwactiveskill":
+                        dwactiveskillIndex = i;
+                        break;
                 }
 
             }
             for (int i = headlineNumber + 1; i < propitemtxt.Count; i++)
             {
-                if (propitemtxt[i].Split('\t').Length == 124)
+                var test = propitemtxt[i].Split('\t').Length;
+                Console.WriteLine(test);
+                if (propitemtxt[i].Split('\t').Length == 171)
                 {
                     var splittedLine = propitemtxt[i].Split('\t');
                     var dwPackMax = 1;
@@ -309,7 +254,7 @@ namespace FlyffDataViewer.Classes
                         //Console.WriteLine(ex.Message + " --Wert:" +splittedLine[dwItemKind2Index]);
                     }
                     //int.Parse(splittedLine[dwPackMaxIndex]);
-                    var propitemtxtObject = new PropItemDTO
+                    var propitemtxtObject = new SpecItem
                     {
                         dwID = splittedLine[dwIDIndex],
                         szName = splittedLine[szNameIndex],
@@ -327,10 +272,24 @@ namespace FlyffDataViewer.Classes
                         dwAbilityMax = splittedLine[dwAbilityMaxIndex],
                         dwWeaponType = splittedLine[dwWeaponTypeIndex],
                         dwAttackRange = splittedLine[dwAttackRangeIndex],
-                        dwAttackSpeed = splittedLine[dwAttackSpeedIndex]
+                        dwAttackSpeed = splittedLine[dwAttackSpeedIndex],
+                        dwDestParam1 = splittedLine[dwDestParam1Index],
+                        dwDestParam2 = splittedLine[dwDestParam2Index],
+                        dwDestParam3 = splittedLine[dwDestParam3Index],
+                        dwDestParam4 = splittedLine[dwDestParam4Index],
+                        dwDestParam5 = splittedLine[dwDestParam5Index],
+                        dwDestParam6 = splittedLine[dwDestParam6Index],
+                        nAdjParamVal1 = splittedLine[nAdjParamVal1Index],
+                        nAdjParamVal2 = splittedLine[nAdjParamVal2Index],
+                        nAdjParamVal3 = splittedLine[nAdjParamVal3Index],
+                        nAdjParamVal4 = splittedLine[nAdjParamVal4Index],
+                        nAdjParamVal5 = splittedLine[nAdjParamVal5Index],
+                        nAdjParamVal6 = splittedLine[nAdjParamVal6Index],
+                        dwactiveskill = splittedLine[dwactiveskillIndex],
                     };
                     Items.Add(propitemtxtObject);
                 }
+                Console.WriteLine(Items);
 
             }
         }

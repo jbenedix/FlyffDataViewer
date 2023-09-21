@@ -33,7 +33,7 @@ namespace FlyffDataViewer.Usercontrols
 
         private void listBox_Items_SelectedIndexChanged(object sender, EventArgs e)
         {
-            PropItemDTO selectedItem = (PropItemDTO)listBox_Items.SelectedItem;
+            SpecItem selectedItem = (SpecItem)listBox_Items.SelectedItem;
             textBox_ID.Text = selectedItem.ID;
             textBox_IngameName.Text = selectedItem.ingameName;
             textBox_MaxStack.Text = selectedItem.dwPackMax.ToString();
@@ -53,6 +53,19 @@ namespace FlyffDataViewer.Usercontrols
             textBox_dwWeaponType.Text = selectedItem.dwWeaponType;
             textBox_dwAttackRange.Text = selectedItem.dwAttackRange;
             textBox_dwAttackSpeed.Text = selectedItem.dwAttackSpeed;
+            textBox_dwDestParam1.Text = selectedItem.dwDestParam1;
+            textBox_dwDestParam2.Text = selectedItem.dwDestParam2;
+            textBox_dwDestParam3.Text = selectedItem.dwDestParam3;
+            textBox_dwDestParam4.Text = selectedItem.dwDestParam4;
+            textBox_dwDestParam5.Text = selectedItem.dwDestParam5;
+            textBox_dwDestParam6.Text = selectedItem.dwDestParam6;
+
+            textBox_nAdjParamVal1.Text = selectedItem.nAdjParamVal1;
+            textBox_nAdjParamVal2.Text = selectedItem.nAdjParamVal2;
+            textBox_nAdjParamVal3.Text = selectedItem.nAdjParamVal3;
+            textBox_nAdjParamVal4.Text = selectedItem.nAdjParamVal4;
+            textBox_nAdjParamVal5.Text = selectedItem.nAdjParamVal5;
+            textBox_nAdjParamVal6.Text = selectedItem.nAdjParamVal6;
 
             if (selectedItem.dwItemKind1 == "IK1_WEAPON")
             {
@@ -60,19 +73,7 @@ namespace FlyffDataViewer.Usercontrols
                 var specItem = ContentManager.SpecItems.SingleOrDefault(x => x.dwID == selectedItem.dwID);
                 if (specItem != null)
                 {
-                    textBox_dwDestParam1.Text = specItem.dwDestParam1;
-                    textBox_dwDestParam2.Text = specItem.dwDestParam2;
-                    textBox_dwDestParam3.Text = specItem.dwDestParam3;
-                    textBox_dwDestParam4.Text = specItem.dwDestParam4;
-                    textBox_dwDestParam5.Text = specItem.dwDestParam5;
-                    textBox_dwDestParam6.Text = specItem.dwDestParam6;
 
-                    textBox_nAdjParamVal1.Text = specItem.nAdjParamVal1;
-                    textBox_nAdjParamVal2.Text = specItem.nAdjParamVal2;
-                    textBox_nAdjParamVal3.Text = specItem.nAdjParamVal3;
-                    textBox_nAdjParamVal4.Text = specItem.nAdjParamVal4;
-                    textBox_nAdjParamVal5.Text = specItem.nAdjParamVal5;
-                    textBox_nAdjParamVal6.Text = specItem.nAdjParamVal6;
                 }
 
 
@@ -85,7 +86,7 @@ namespace FlyffDataViewer.Usercontrols
 
         private void textBox_search_TextChanged(object sender, EventArgs e)
         {
-            List<PropItemDTO> filteredItems = new List<PropItemDTO>();
+            List<SpecItem> filteredItems = new List<SpecItem>();
             if (textBox_search.Text.Length > 0)
             {
                 foreach (var item in ContentManager.Items)
@@ -114,7 +115,7 @@ namespace FlyffDataViewer.Usercontrols
 
             if (listBox_Items.SelectedItem is not null)
             {
-                PropItemDTO selectedItem = (PropItemDTO)listBox_Items.SelectedItem;
+                SpecItem selectedItem = (SpecItem)listBox_Items.SelectedItem;
                 Clipboard.SetText("/CreateItem " + selectedItem.ID + " 1");
             }
         }
@@ -126,24 +127,24 @@ namespace FlyffDataViewer.Usercontrols
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Process.Start("notepad", SettingsManager.resourcePath + @"\propItem.txt");
+            Process.Start("notepad", SettingsManager.resourcePath + @"\Spec_Item.txt");
         }
 
         private void button3_Click_1(object sender, EventArgs e)
         {
-            ContentManager.OpenCSVWithExcel(SettingsManager.resourcePath + @"\propItem.txt");
+            ContentManager.OpenCSVWithExcel(SettingsManager.resourcePath + @"\Spec_Item.txt");
         }
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            Process.Start("notepad", SettingsManager.resourcePath + @"\propItem.txt");
+            Process.Start("notepad", SettingsManager.resourcePath + @"\Spec_Item.txt");
         }
 
         private void button1_Click_2(object sender, EventArgs e)
         {
             if (listBox_Items.SelectedItem is not null)
             {
-                PropItemDTO selectedItem = (PropItemDTO)listBox_Items.SelectedItem;
+                SpecItem selectedItem = (SpecItem)listBox_Items.SelectedItem;
                 Clipboard.SetText("/CreateItem " + selectedItem.ID + " 1");
             }
         }
@@ -152,7 +153,7 @@ namespace FlyffDataViewer.Usercontrols
         {
             AddToShopList addToShopList = new AddToShopList();
 
-            PropItemDTO selectedItem = (PropItemDTO)listBox_Items.SelectedItem;
+            SpecItem selectedItem = (SpecItem)listBox_Items.SelectedItem;
             addToShopList.Itemname = selectedItem.dwID;
 
             shopList.Show();
@@ -174,8 +175,8 @@ namespace FlyffDataViewer.Usercontrols
 
         private void button6_Click(object sender, EventArgs e)
         {
-            Process.Start("notepad.exe", SettingsManager.resourcePath + @"\propItem.txt");
-            PropItemDTO selectedItem = (PropItemDTO)listBox_Items.SelectedItem;
+            Process.Start("notepad.exe", SettingsManager.resourcePath + @"\Spec_Item.txt");
+            SpecItem selectedItem = (SpecItem)listBox_Items.SelectedItem;
             // Add a delay to allow Notepad to open the file
             System.Threading.Thread.Sleep(1000);
 
