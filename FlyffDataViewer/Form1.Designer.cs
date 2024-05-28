@@ -30,7 +30,6 @@
         {
             menuStrip1 = new MenuStrip();
             itemsToolStripMenuItem = new ToolStripMenuItem();
-            characterToolStripMenuItem = new ToolStripMenuItem();
             monstersToolStripMenuItem = new ToolStripMenuItem();
             panel1 = new Panel();
             menuStrip1.SuspendLayout();
@@ -40,7 +39,7 @@
             // 
             menuStrip1.BackColor = SystemColors.GrayText;
             menuStrip1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { itemsToolStripMenuItem, characterToolStripMenuItem, monstersToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { itemsToolStripMenuItem, monstersToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1140, 29);
@@ -54,13 +53,6 @@
             itemsToolStripMenuItem.Size = new Size(63, 25);
             itemsToolStripMenuItem.Text = "Items";
             itemsToolStripMenuItem.Click += itemsToolStripMenuItem_Click;
-            // 
-            // characterToolStripMenuItem
-            // 
-            characterToolStripMenuItem.ForeColor = Color.White;
-            characterToolStripMenuItem.Name = "characterToolStripMenuItem";
-            characterToolStripMenuItem.Size = new Size(92, 25);
-            characterToolStripMenuItem.Text = "Character";
             // 
             // monstersToolStripMenuItem
             // 
@@ -99,7 +91,6 @@
 
         private MenuStrip menuStrip1;
         private ToolStripMenuItem itemsToolStripMenuItem;
-        private ToolStripMenuItem characterToolStripMenuItem;
         private ToolStripMenuItem monstersToolStripMenuItem;
         private Panel panel1;
     }
