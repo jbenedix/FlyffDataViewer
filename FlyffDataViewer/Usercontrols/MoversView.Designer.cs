@@ -34,9 +34,6 @@
             comboBox_MoverClass = new ComboBox();
             label6 = new Label();
             label34 = new Label();
-            button_CardFilter = new Button();
-            button_FoodFilter = new Button();
-            button_ScrollFilter = new Button();
             button_PetFilter = new Button();
             button_MonsterFilter = new Button();
             label1 = new Label();
@@ -63,6 +60,7 @@
             button7.TabIndex = 54;
             button7.Text = "Reset";
             button7.UseVisualStyleBackColor = false;
+            button7.Click += button7_Click;
             // 
             // textBox_search
             // 
@@ -82,9 +80,6 @@
             panel1.Controls.Add(comboBox_MoverClass);
             panel1.Controls.Add(label6);
             panel1.Controls.Add(label34);
-            panel1.Controls.Add(button_CardFilter);
-            panel1.Controls.Add(button_FoodFilter);
-            panel1.Controls.Add(button_ScrollFilter);
             panel1.Controls.Add(button_PetFilter);
             panel1.Controls.Add(button_MonsterFilter);
             panel1.Location = new Point(242, 43);
@@ -125,39 +120,6 @@
             label34.TabIndex = 101;
             label34.Text = "Filter";
             // 
-            // button_CardFilter
-            // 
-            button_CardFilter.BackColor = Color.DimGray;
-            button_CardFilter.FlatStyle = FlatStyle.Popup;
-            button_CardFilter.Location = new Point(404, 3);
-            button_CardFilter.Name = "button_CardFilter";
-            button_CardFilter.Size = new Size(80, 24);
-            button_CardFilter.TabIndex = 105;
-            button_CardFilter.Text = "Upgrading";
-            button_CardFilter.UseVisualStyleBackColor = false;
-            // 
-            // button_FoodFilter
-            // 
-            button_FoodFilter.BackColor = Color.DimGray;
-            button_FoodFilter.FlatStyle = FlatStyle.Popup;
-            button_FoodFilter.Location = new Point(332, 3);
-            button_FoodFilter.Name = "button_FoodFilter";
-            button_FoodFilter.Size = new Size(66, 24);
-            button_FoodFilter.TabIndex = 104;
-            button_FoodFilter.Text = "Food";
-            button_FoodFilter.UseVisualStyleBackColor = false;
-            // 
-            // button_ScrollFilter
-            // 
-            button_ScrollFilter.BackColor = Color.DimGray;
-            button_ScrollFilter.FlatStyle = FlatStyle.Popup;
-            button_ScrollFilter.Location = new Point(255, 3);
-            button_ScrollFilter.Name = "button_ScrollFilter";
-            button_ScrollFilter.Size = new Size(71, 24);
-            button_ScrollFilter.TabIndex = 103;
-            button_ScrollFilter.Text = "Scrolls";
-            button_ScrollFilter.UseVisualStyleBackColor = false;
-            // 
             // button_PetFilter
             // 
             button_PetFilter.BackColor = Color.DimGray;
@@ -168,6 +130,7 @@
             button_PetFilter.TabIndex = 102;
             button_PetFilter.Text = "Pets";
             button_PetFilter.UseVisualStyleBackColor = false;
+            button_PetFilter.Click += button_PetFilter_Click;
             // 
             // button_MonsterFilter
             // 
@@ -179,6 +142,7 @@
             button_MonsterFilter.TabIndex = 101;
             button_MonsterFilter.Text = "Monsters";
             button_MonsterFilter.UseVisualStyleBackColor = false;
+            button_MonsterFilter.Click += button_MonsterFilter_Click;
             // 
             // label1
             // 
@@ -336,9 +300,6 @@
         private TextBox textBox_search;
         private Panel panel1;
         private Label label34;
-        private Button button_CardFilter;
-        private Button button_FoodFilter;
-        private Button button_ScrollFilter;
         private Button button_PetFilter;
         private Button button_MonsterFilter;
         private Label label1;

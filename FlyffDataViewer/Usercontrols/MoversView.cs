@@ -82,5 +82,24 @@ namespace FlyffDataViewer.Usercontrols
                 Clipboard.SetText("/cn " + selectedItem.ID + " 1 0");
             }
         }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            listBox_Movers.DataSource = ContentManager.Movers;
+        }
+
+        private void button_MonsterFilter_Click(object sender, EventArgs e)
+        {
+            var filteredItems = ContentManager.Movers.Where(x => x.dwAI == "AII_MONSTER").ToList();
+            listBox_Movers.DataSource = filteredItems;
+            textBox_search.Text = "";
+        }
+
+        private void button_PetFilter_Click(object sender, EventArgs e)
+        {
+            var filteredItems = ContentManager.Movers.Where(x => x.dwAI == "AII_PET").ToList();
+            listBox_Movers.DataSource = filteredItems;
+            textBox_search.Text = "";
+        }
     }
 }

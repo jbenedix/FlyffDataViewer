@@ -37,9 +37,13 @@ namespace FlyffDataViewer.Classes
         public static void LoadItems()
         {
             LoadSpecItemTxt();
+            Console.WriteLine(specitemtxt);
             LoadPropItemTxtTxt();
+            Console.WriteLine(propitemtxttxt);
             LoadDefineItems();
+            Console.WriteLine(defineItems);
             updateItemIngameName();
+            Console.WriteLine(Items);
 
         }
 

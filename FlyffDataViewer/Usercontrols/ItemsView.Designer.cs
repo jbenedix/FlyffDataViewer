@@ -55,7 +55,6 @@
             button3 = new Button();
             button4 = new Button();
             button5 = new Button();
-            button6 = new Button();
             textBox_dwItemKind3 = new TextBox();
             label7 = new Label();
             textBox_dwItemKind2 = new TextBox();
@@ -425,18 +424,6 @@
             button5.Text = "Add to Shoplist";
             button5.UseVisualStyleBackColor = false;
             button5.Click += button5_Click;
-            // 
-            // button6
-            // 
-            button6.BackColor = Color.DimGray;
-            button6.FlatStyle = FlatStyle.Popup;
-            button6.Location = new Point(1000, 80);
-            button6.Name = "button6";
-            button6.Size = new Size(128, 30);
-            button6.TabIndex = 19;
-            button6.Text = "Edit Entry in Notepad";
-            button6.UseVisualStyleBackColor = false;
-            button6.Click += button6_Click;
             // 
             // textBox_dwItemKind3
             // 
@@ -1074,7 +1061,6 @@
             Controls.Add(label8);
             Controls.Add(textBox_dwItemKind1);
             Controls.Add(label9);
-            Controls.Add(button6);
             Controls.Add(button5);
             Controls.Add(button4);
             Controls.Add(button3);
@@ -1125,7 +1111,6 @@
         private Button button3;
         private Button button4;
         private Button button5;
-        private Button button6;
         private TextBox textBox_dwItemKind3;
         private Label label7;
         private TextBox textBox_dwItemKind2;

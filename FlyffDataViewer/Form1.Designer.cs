@@ -53,6 +53,7 @@
             itemsToolStripMenuItem.Name = "itemsToolStripMenuItem";
             itemsToolStripMenuItem.Size = new Size(63, 25);
             itemsToolStripMenuItem.Text = "Items";
+            itemsToolStripMenuItem.Click += itemsToolStripMenuItem_Click;
             // 
             // characterToolStripMenuItem
             // 

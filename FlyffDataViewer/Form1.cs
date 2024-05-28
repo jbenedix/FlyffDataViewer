@@ -33,5 +33,11 @@ namespace FlyffDataViewer
             moversView.Visible = true;
             itemsView.Visible = false;
         }
+
+        private void itemsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            moversView.Visible = false;
+            itemsView.Visible = true;
+        }
     }
 }

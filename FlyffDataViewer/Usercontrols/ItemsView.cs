@@ -245,5 +245,10 @@ namespace FlyffDataViewer.Usercontrols
             listBox_Items.DataSource = filteredItems;
             textBox_search.Text = "";
         }
+
+        private void button8_Click_1(object sender, EventArgs e)
+        {
+            ContentManager.LoadItems();
+        }
     }
 }
